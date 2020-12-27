@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ambassador-config
+data:
+  haproxy.cfg: |-
+    global
+        daemon
+        maxconn 255
+
+    defaults
+        mode http
+        timeout connect 5000ms
+        timeout client 5000ms
+        timeout server 5000ms
+
+    listen http-in
+        bind *:80
+        server server1 127.0.0.1:8775 maxconn 32  

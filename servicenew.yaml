@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: service-new
+spec:
+  containers: 
+  - name: legacy-service
+    image: linuxacademycontent/legacy-first-service:1
+  - name: haproxy-ambassador
+    image: haproxy:1.7
+    ports: 
+    - containerPort: 80
+    volumeMounts: 
+    - name: config-volume
+      mountPath: /usr/local/etc/haproxy
+  volumes:
+  - name: config-volume
+    configMap:
+      name: ambassador-config
+

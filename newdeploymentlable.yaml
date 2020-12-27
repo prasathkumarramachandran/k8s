@@ -1,0 +1,9 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-label
+spec:
+  replicas: 10
+  selector: 
+    matchLabels: 
+      mstype: team1 

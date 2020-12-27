@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-label
+  labels:
+    mstype: java
+    team: team1
+  annotations:
+     owner: iamtheowner@abc.com
+     git-commit: a8323020323
+spec:
+  containers: 
+    - name: mynginx-container
+      image: nginx  

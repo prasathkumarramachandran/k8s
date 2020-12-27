@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mycmdport
+  labels:
+    app: mycmdport
+spec:
+  containers:
+  - name: myapparg-container
+    image: nginx
+    ports:
+    - containerPort: 80
